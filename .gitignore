@@ -1,0 +1,17 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock
+
+# Secrets — never commit real Gameflip credentials or codes
+.env
+*.env
+codes.txt
+codes.local.txt
+*.codes
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

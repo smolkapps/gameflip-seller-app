@@ -1,0 +1,36 @@
+[package]
+name = "gameflip-seller-app"
+version = "0.1.0"
+edition = "2021"
+authors = ["smolkai <smolkai@users.noreply.github.com>"]
+description = "Seller tool for Gameflip that posts a preset catalog of credit-pack listings (10/20/50/100 credits) via the Gameflip Seller API."
+license = "MIT"
+readme = "README.md"
+repository = ""
+keywords = ["gameflip", "marketplace", "seller", "automation", "listings"]
+categories = ["command-line-utilities", "api-bindings"]
+
+[[bin]]
+name = "gfseller"
+path = "src/main.rs"
+
+[lib]
+name = "gameflip_seller"
+path = "src/lib.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+clap = { version = "4", features = ["derive"] }
+# HTTP client (blocking, rustls so no system OpenSSL needed)
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+# TOTP primitives
+hmac = "0.12"
+sha1 = "0.10"
+data-encoding = "2"   # base32 decode of the OTP secret
+time = "0.3"          # current unix time for the TOTP counter
+
+[dev-dependencies]
+# In-process mock HTTP server for client tests (no live Gameflip calls)
+httpmock = "0.7"

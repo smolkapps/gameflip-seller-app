@@ -1,0 +1,7 @@
+# Example codes file for `gfseller post --live --codes codes.txt`.
+# One line per pack: CREDITS=CODE. Lines starting with # are ignored.
+# Copy to codes.txt (gitignored) and fill in your real, unique codes.
+10=ACME-AAAA-0001
+20=ACME-BBBB-0002
+50=ACME-CCCC-0003
+100=ACME-DDDD-0004
